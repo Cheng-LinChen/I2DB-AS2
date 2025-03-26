@@ -43,23 +43,23 @@ public class UpdateItemTxnJdbcJob implements JdbcJob {
 		// Execute logic
 		try {
 			Statement statement = conn.createStatement();
+			Statement statement_ = conn.createStatement();
 			ResultSet rs = null;
 			
 			// SELECT
 			for (int i = 0; i < paramHelper.getUpdateCount(); i++) {
 				int iid = paramHelper.getUpdateItemId(i);
 				double delta = paramHelper.getUpdateItemValue(i);
-				String sql = "SELECT i_name, i_price FROM item WHERE i_id = " + iid;
+				String sql = "SELECT i_price FROM item WHERE i_id = " + iid;
 				rs = statement.executeQuery(sql);
 				rs.beforeFirst();
 				if (rs.next()) {
 					double price = rs.getDouble("i_price");
 					double newPrice = (price + delta > As2BenchConstants.MAX_PRICE) 
-    						? As2BenchConstants.MIN_PRICE : (price + delta);
+    						? (double)As2BenchConstants.MIN_PRICE : (double)(price + delta);
 					
 					String sqlUpdate = "UPDATE item SET i_price = " + newPrice + " Where i_id = " +  iid;
-					ResultSet rsUpdate = null;
-					rsUpdate = statement.executeQuery(sqlUpdate);
+					statement_.executeQuery(sqlUpdate);
 					outputMsg.append(String.format("The price of item %d has been changed from %f to %f ", iid, price, newPrice));
 				} else
 					throw new RuntimeException("cannot find the record with i_id = " + iid);

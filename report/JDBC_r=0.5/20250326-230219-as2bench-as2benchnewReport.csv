@@ -1,0 +1,15 @@
+time(sec), throughput(txs), avg_latency(ms), min(ms), max(ms), 25th_lat(ms), median_lat(ms), 75th_lat(ms)
+0,3379,2,1,34,1,2,2
+5,3189,2,1,36,2,2,2
+10,3122,2,1,30,2,2,2
+15,3339,2,1,36,2,2,2
+20,3299,2,1,30,2,2,2
+25,3252,2,1,41,2,2,2
+30,3287,2,1,47,2,2,2
+35,3365,2,1,33,2,2,2
+40,3261,2,1,33,2,2,2
+45,3149,2,1,35,2,2,2
+50,3222,2,1,34,2,2,2
+55,3013,2,1,61,2,2,2
+# of txns (including aborted) during benchmark period: 77437
+TOTAL - committed: 38877, aborted: 38560, avg latency: 3.08 ms
