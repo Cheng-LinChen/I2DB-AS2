@@ -51,10 +51,10 @@ public class UpdateItemTxnProc extends StoredProcedure<UpdateItemProcParamHelper
 				paramHelper.setItemName(name, idx);
 				paramHelper.setItemPrice(newPrice, idx);
 
-				int sUpdate = StoredProcedureHelper.executeUpdate(
+				StoredProcedureHelper.executeUpdate(
 					"UPDATE item SET i_price = " + newPrice + " WHERE i_id = " + iid,
 					tx
-			);
+				);
 			} else
 				throw new RuntimeException("Cloud not find item record with i_id = " + iid);
 
