@@ -49,7 +49,7 @@ public class UpdateItemTxnJdbcJob implements JdbcJob {
 			for (int i = 0; i < paramHelper.getUpdateCount(); i++) {
 				int iid = paramHelper.getUpdateItemId(i);
 				double delta = paramHelper.getUpdateItemValue(i);
-				String sql = "SELECT i_name FROM item WHERE i_id = " + iid;
+				String sql = "SELECT i_name, i_price FROM item WHERE i_id = " + iid;
 				rs = statement.executeQuery(sql);
 				rs.beforeFirst();
 				if (rs.next()) {
