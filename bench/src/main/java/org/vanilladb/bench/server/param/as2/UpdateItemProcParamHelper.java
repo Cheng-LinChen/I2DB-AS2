@@ -98,7 +98,7 @@ public class UpdateItemProcParamHelper implements StoredProcedureHelper {
 
 	@Override
 	public boolean isReadOnly() {
-		return true;
+		return false;
 	}
 
 }

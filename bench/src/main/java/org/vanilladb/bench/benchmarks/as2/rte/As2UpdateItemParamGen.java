@@ -32,7 +32,7 @@ public class As2UpdateItemParamGen implements TxParamGenerator<As2BenchTransacti
 		paramList.add(TOTAL_SELECT_COUNT);
 		for (int i = 0; i < TOTAL_SELECT_COUNT; i++){
 			paramList.add(rvg.number(1, As2BenchConstants.NUM_ITEMS));
-			double randNum = rvg.number(0, 50)/10.0 ; 
+			double randNum = (double)(rvg.number(0, 50)/10.0); 
 			paramList.add(randNum);
 		}
 		return paramList.toArray(new Object[0]);
